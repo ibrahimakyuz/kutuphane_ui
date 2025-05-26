@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>Admin - Tüm Ödünç Geçmişi</h2>
+
+    <div *ngIf="loading" class="loading">Yükleniyor...</div>
+    <div *ngIf="error" class="error">{{ error }}</div>
+
+    <table *ngIf="!loading && oduncGecmisi && oduncGecmisi.length > 0">
+        <thead>
+            <tr>
+                <th>Kitap Adı</th>
+                <th>Kullanıcı Adı</th>
+                <th>Alış Tarihi</th>
+                <th>İade Tarihi</th>
+                <th>Durum</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of oduncGecmisi">
+                <td>{{ item.kitapAdi }}</td>
+                <td>{{ item.kullaniciAdi }}</td>
+                <td>{{ item.alisTarihi | date:'short' }}</td>
+                <td>{{ item.iadeTarihi ? (item.iadeTarihi | date:'short') : 'Henüz iade edilmedi' }}</td>
+                <td class="status" [ngClass]="{
+  'ieda-edildi': item.iadeEdildi,
+  'odunc-alindi': !item.iadeEdildi
+}">
+                    {{ item.iadeEdildi ? 'İade Edildi' : 'İade Edilmedi' }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="!loading && (!oduncGecmisi || oduncGecmisi.length === 0)" class="empty-message">
+        Şuan ödünç verilmiş kitap bulunmamaktadır.
+    </div>
+</div>

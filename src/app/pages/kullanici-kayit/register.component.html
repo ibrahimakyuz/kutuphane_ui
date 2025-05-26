@@ -1,0 +1,43 @@
+<div class="register-container">
+  <h2>Kayıt Ol</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="kullaniciAdi">Kullanıcı Adı:</label>
+      <input id="kullaniciAdi" formControlName="kullaniciAdi" />
+      <div *ngIf="registerForm.get('kullaniciAdi')?.invalid && registerForm.get('kullaniciAdi')?.touched">
+        Kullanıcı adı gereklidir.
+      </div>
+    </div>
+
+    <div>
+      <label for="sifre">Şifre:</label>
+      <input type="password" id="sifre" formControlName="sifre" />
+      <div *ngIf="registerForm.get('sifre')?.invalid && registerForm.get('sifre')?.touched">
+  Şifre en az 6 ve en fazla 20 karakter olmalıdır.
+</div>
+    </div>
+    <div>
+      <label for="sifreTekrar">Şifre Tekrar:</label>
+      <input type="password" id="sifreTekrar" formControlName="sifreTekrar" />
+      <div *ngIf="
+    (registerForm.hasError('notMatching') && registerForm.get('sifreTekrar')?.touched) ||
+    (registerForm.get('sifreTekrar')?.invalid && registerForm.get('sifreTekrar')?.touched)
+  ">
+        Şifreler uyuşmuyor.
+      </div>
+    </div>
+    <div>
+      <label for="mail">E-posta:</label>
+      <input type="email" id="mail" formControlName="mail" />
+      <div *ngIf="registerForm.get('mail')?.invalid && registerForm.get('mail')?.touched">
+        Geçerli bir e-posta adresi giriniz.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid">Kayıt Ol</button>
+  </form>
+
+  <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>

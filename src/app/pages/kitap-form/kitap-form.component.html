@@ -1,0 +1,35 @@
+<div class="form-container">
+  <h2>{{ kitap.id === 0 ? 'Yeni Kitap Ekle' : 'Kitap Düzenle' }}</h2>
+
+  <form (ngSubmit)="kaydet()">
+    <label>Kitap Adı:</label>
+    <input [(ngModel)]="kitap.ad" name="ad" required />
+
+    <label>Yazar:</label>
+    <select [(ngModel)]="kitap.yazar.id" name="yazarId" required>
+      <option [value]="0" disabled>Seçiniz</option>
+      <option *ngFor="let yazar of yazarlar" [value]="yazar.id">
+        {{ yazar.ad }} {{ yazar.soyad }}
+      </option>
+    </select>
+
+    <label>Kategori:</label>
+    <select [(ngModel)]="kitap.kategori.id" name="kategoriId" required>
+      <option [value]="0" disabled>Seçiniz</option>
+      <option *ngFor="let kategori of kategoriler" [value]="kategori.id">
+        {{ kategori.ad }}
+      </option>
+    </select>
+
+    <label>Yayınevi:</label>
+    <input [(ngModel)]="kitap.yayinevi" name="yayinevi" />
+
+    <label>Sayfa Sayısı:</label>
+    <input type="number" [(ngModel)]="kitap.sayfaSayisi" name="sayfaSayisi" />
+
+    <label>Stok:</label>
+    <input type="number" [(ngModel)]="kitap.stok" name="stok" />
+
+    <button type="submit">Kaydet</button>
+  </form>
+</div>

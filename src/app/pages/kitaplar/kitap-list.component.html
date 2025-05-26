@@ -1,0 +1,48 @@
+<div class="kitap-container">
+  <h2>📚 Kitap Listesi</h2>
+
+  <button class="p-button yeni-kayit-btn" (click)="yeniKitapEkle()">
+    <i class="pi pi-plus"></i>
+    <span>Yeni Kitap Ekle</span>
+  </button>
+
+  <table class="kitap-tablosu">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Ad</th>
+        <th>Yazar</th>
+        <th>Kategori</th> <!-- Kategori sütunu ekledim -->
+        <th>Yayınevi</th>
+        <th>Sayfa Sayısı</th>
+        <th>Stok</th>
+        <th>İşlemler</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let kitap of kitaplar; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ kitap.ad }}</td>
+        <td>{{ kitap.yazar.ad }} {{ kitap.yazar.soyad }}</td>
+        <td>{{ kitap.kategori.ad }}</td>
+        <td>{{ kitap.yayinevi }}</td>
+        <td>{{ kitap.sayfaSayisi }}</td>
+        <td>{{ kitap.stok }}</td>
+        <td>
+          <button class="p-button p-button-sm p-button-text p-button-info" (click)="guncelle(kitap)">
+            <i class="pi pi-pencil"></i>
+            <span>Güncelle</span>
+          </button>
+          <button class="p-button p-button-sm p-button-text p-button-danger" (click)="sil(kitap.id)">
+            <i class="pi pi-trash"></i>
+            <span>Sil</span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="kitaplar.length === 0" class="no-data">
+    Hiç kitap bulunamadı.
+  </div>
+</div>

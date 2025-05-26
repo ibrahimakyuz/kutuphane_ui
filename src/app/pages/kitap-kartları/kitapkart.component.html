@@ -1,0 +1,22 @@
+<!-- <div class="kitaplar-container">
+  <div class="kitap-card" *ngFor="let kitap of kitaplar">
+    <h3>{{ kitap.ad }}</h3>
+    <p><strong>Yazar:</strong> {{ kitap.yazar }}</p>
+    <p><strong>Yayınevi:</strong> {{ kitap.yayinevi }}</p>
+    <p><strong>Sayfa Sayısı:</strong> {{ kitap.sayfaSayisi }}</p>
+    <p><strong>Stok:</strong> {{ kitap.stok }}</p>
+    <button (click)="oduncSayfasinaGit(kitap.id)">Ödünç Al</button>
+  </div>
+</div> -->
+
+<div class="kitaplar-container">
+  <div class="kitap-card" *ngFor="let kitap of kitaplar">
+    <h3>{{ kitap.ad }}</h3>
+    <p><strong>Yazar:</strong> {{ kitap.yazar.ad }} {{ kitap.yazar.soyad }}</p>
+    <p><strong>Kategori:</strong> {{ kitap.kategori.ad }}</p>
+    <p><strong>Yayınevi:</strong> {{ kitap.yayinevi }}</p>
+    <p><strong>Sayfa Sayısı:</strong> {{ kitap.sayfaSayisi }}</p>
+    <p><strong>Stok:</strong> {{ kitap.stok }}</p>
+    <button (click)="oduncSayfasinaGit(kitap.id)">Ödünç Al</button>
+  </div>
+</div>

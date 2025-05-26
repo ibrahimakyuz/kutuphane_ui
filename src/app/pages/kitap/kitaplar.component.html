@@ -1,0 +1,30 @@
+<div class="kitap-container">
+  <h2>📚 Kitap Listesi</h2>
+
+  <table class="kitap-tablosu">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Ad</th>
+        <th>Yazar</th>
+        <th>Yayınevi</th>
+        <th>Sayfa Sayısı</th>
+        <th>Stok</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let kitap of kitaplar; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ kitap.ad }}</td>
+        <td>{{ kitap.yazar }}</td>
+        <td>{{ kitap.yayinevi }}</td>
+        <td>{{ kitap.sayfaSayisi }}</td>
+        <td>{{ kitap.stok }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="kitaplar.length === 0" class="no-data">
+    Hiç kitap bulunamadı.
+  </div>
+</div>

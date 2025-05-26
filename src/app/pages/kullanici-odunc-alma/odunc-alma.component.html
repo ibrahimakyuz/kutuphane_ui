@@ -1,0 +1,51 @@
+<div class="odunc-al-container">
+  <h2>Ödünç Al - Kitap Listesi</h2>
+
+  <input
+    type="text"
+    placeholder="Kitap adına göre filtrele..."
+    [(ngModel)]="filtre"
+    (input)="applyFilter()"
+  />
+
+  <table class="kitap-tablosu">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Ad</th>
+        <th>Yazar</th>
+        <th>Yayınevi</th>
+        <th>Sayfa Sayısı</th>
+        <th>Durum</th>
+        <th>İşlem</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let kitap of pagedKitaplar; index as i">
+        <td>{{ (currentPage - 1) * pageSize + i + 1 }}</td>
+        <td>{{ kitap.ad }}</td>
+        <td>{{ kitap.yazar.ad }} {{ kitap.yazar.soyad }}</td>
+        <td>{{ kitap.yayinevi }}</td>
+        <td>{{ kitap.sayfaSayisi }}</td>
+       <td>{{ kitap.stok === 1 ? 'Müsait' : kitap.stok }}</td> <!-- Burada -->
+        <td>
+          <button (click)="oduncAl(kitap)">Ödünç Al</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination-controls" *ngIf="totalPages > 1">
+    <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Önceki</button>
+
+    <button
+      *ngFor="let page of [].constructor(totalPages); let i = index"
+      (click)="goToPage(i + 1)"
+      [class.active]="currentPage === i + 1"
+    >
+      {{ i + 1 }}
+    </button>
+
+    <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Sonraki</button>
+  </div>
+</div>

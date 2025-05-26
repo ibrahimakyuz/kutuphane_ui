@@ -1,0 +1,44 @@
+.odunc-al-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 1rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.kitap-tablosu {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.kitap-tablosu th, .kitap-tablosu td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.pagination-controls {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.pagination-controls button {
+  margin: 0 0.25rem;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+}
+
+.pagination-controls button.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.pagination-controls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

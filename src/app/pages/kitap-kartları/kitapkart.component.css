@@ -1,0 +1,66 @@
+.kitaplar-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(240px, 1fr)); /* minimum 240px genişlik */
+  gap: 2rem; /* boşlukları biraz artırdık */
+  padding: 2rem 3rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .kitaplar-container {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .kitaplar-container {
+    grid-template-columns: 1fr;
+    padding: 1rem 1.5rem;
+  }
+}
+.kitap-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  padding: 1.5rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: box-shadow 0.3s ease;
+}
+
+.kitap-card:hover {
+  box-shadow: 0 4px 20px rgb(0 0 0 / 0.15);
+}
+
+.kitap-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #3f51b5; /* PrimeNG Indigo */
+}
+
+.kitap-card p {
+  margin: 0.3rem 0;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.kitap-card button {
+  align-self: flex-start;
+  margin-top: 1rem;
+  background-color: #3f51b5;
+  border: none;
+  color: white;
+  padding: 0.5rem 1.1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.kitap-card button:hover {
+  background-color: #303f9f;
+}

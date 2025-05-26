@@ -1,0 +1,44 @@
+.kitap-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f4faff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.kitap-container h2 {
+  text-align: center;
+  color: #007acc;
+  margin-bottom: 20px;
+}
+
+.kitap-tablosu {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.kitap-tablosu th,
+.kitap-tablosu td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.kitap-tablosu th {
+  background-color: #0f1315;
+  color: white;
+  position: sticky;
+  top: 0;
+}
+
+.kitap-tablosu tr:hover {
+  background-color: #f1f1f1;
+}
+
+.no-data {
+  text-align: center;
+  padding: 20px;
+  color: gray;
+}

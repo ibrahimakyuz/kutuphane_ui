@@ -1,0 +1,33 @@
+<!-- <nav class="navbar">
+  <div class="navbar-brand">📚 Kütüphane</div>
+  <ul class="navbar-links">
+    <li><a routerLink="/" routerLinkActive="active">Anasayfa</a></li>
+    <li><a routerLink="/odunc-al" routerLinkActive="active">Ödünç Al</a></li>
+    <li *ngIf="isAdmin"><a routerLink="/kitap-form" routerLinkActive="active">Kitap Ekle</a></li>
+    <li class="login"><a routerLink="/login" routerLinkActive="active">Giriş Yap</a></li>
+    <button *ngIf="isLoggedIn" (click)="logout()">Çıkış Yap</button>
+
+  </ul>
+</nav> -->
+<nav class="sakai-style-navbar">
+  <div class="navbar-left">
+    <span class="brand">📚 Kütüphane</span>
+    <div class="menu-links">
+      <a routerLink="/" routerLinkActive="active">Anasayfa</a>
+      <a  *ngIf="isUser" routerLink="/odunc-alma" routerLinkActive="active">Ödünç Al</a>
+      <a *ngIf="isUser" routerLink="/odunc-gecmis" routerLinkActive="active">Ödünç Geçmişim</a>
+      <a *ngIf="isAdmin" routerLink="/kitap-list" routerLinkActive="active">Kitap Listesi</a>
+      <a *ngIf="isAdmin" routerLink="/kitap-form" routerLinkActive="active">Kitap Ekle</a>
+      <a *ngIf="isAdmin" routerLink="/admin/odunclar" routerLinkActive="active">Ödünç Listesi</a>
+      <a *ngIf="isAdmin" routerLink="/admin/tum" routerLinkActive="active">Tüm Ödünç Geçmişi</a>
+       <a *ngIf="isAdmin" routerLink="/admin/uyeler" routerLinkActive="active">Üye Listesi</a>
+    </div>
+  </div>
+
+  <div class="navbar-auth">
+     <span *ngIf="isLoggedIn && username">Hoşgeldiniz, {{ username }}</span>
+    <a *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active">Giriş Yap</a>
+    <a *ngIf="!isLoggedIn" routerLink="/register" routerLinkActive="active">Kayıt Ol</a>
+    <button *ngIf="isLoggedIn" (click)="logout()">Çıkış Yap</button>
+  </div>
+</nav>

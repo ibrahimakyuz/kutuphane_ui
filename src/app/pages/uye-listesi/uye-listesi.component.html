@@ -1,0 +1,50 @@
+<!-- Üye Listesi Tablosu (PrimeNG p-table örneğin senin istediğin gibi kalabilir) -->
+<p-table [value]="uyeler" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5,10,20]">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Kullanıcı Adı</th>
+      <th>Mail</th>
+      <th>Rol</th>
+      <th>İşlemler</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-uye>
+    <tr>
+      <td>{{ uye.kullaniciAdi }}</td>
+      <td>{{ uye.mail }}</td>
+      <td>{{ uye.rol }}</td>
+      <td>
+        <button (click)="openUpdateModal(uye)">Güncelle</button>
+        <button (click)="deleteUye(uye.id)">Sil</button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<!-- Modal -->
+<div class="modal-backdrop" *ngIf="selectedUye">
+  <div class="modal">
+    <h2>Üye Bilgilerini Güncelle</h2>
+    
+    <div class="p-field">
+      <label for="kullaniciAdi">Kullanıcı Adı</label>
+      <input id="kullaniciAdi" type="text" [(ngModel)]="selectedUye.kullaniciAdi" />
+    </div>
+    
+    <div class="p-field">
+      <label for="mail">Mail</label>
+      <input id="mail" type="email" [(ngModel)]="selectedUye.mail" />
+    </div>
+
+    <div class="p-field">
+      <label for="rol">Rol</label>
+      <select id="rol" [(ngModel)]="selectedUye.rol">
+        <option value="Kullanici">Kullanici</option>
+        <option value="Admin">Admin</option>
+      </select>
+    </div>
+
+    <button (click)="updateUye()">Güncelle</button>
+    <button (click)="closeModal()">Kapat</button>
+  </div>
+</div>

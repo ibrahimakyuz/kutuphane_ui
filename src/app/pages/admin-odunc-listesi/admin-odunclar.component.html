@@ -1,0 +1,33 @@
+<div class="admin-odunc-container">
+  <h2>Ödünç Verilen Kitaplar</h2>
+
+  <div *ngIf="loading">Yükleniyor...</div>
+  <div *ngIf="error" class="text-red-600 mb-4">{{ error }}</div>
+
+  <div *ngIf="!loading && odunclar.length === 0" class="text-gray-600">
+    Şu an ödünç verilmiş kitap bulunmamaktadır.
+  </div>
+
+  <table *ngIf="!loading && odunclar.length > 0" class="admin-odunc-table">
+    <thead>
+      <tr>
+        <th>Kitap Adı</th>
+        <th>Kullanıcı</th>
+        <th>Alış Tarihi</th>
+        <th>Durum</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let odunc of odunclar">
+        <td>{{ odunc.kitapAdi }}</td>
+        <td>{{ odunc.kullaniciAdi }}</td>
+        <td>{{ odunc.alisTarihi | date:'short' }}</td>
+        <td>
+          <span [ngClass]="odunc.iadeEdildi ? 'status iade' : 'status alindi'">
+            {{ odunc.iadeEdildi ? 'İade Edildi' : 'Ödünç Alındı' }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,86 @@
+.history-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.history-container h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+  color: #333;
+}
+
+.loading,
+.error,
+.empty-message {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.error {
+  color: #e63946;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.history-table th,
+.history-table td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.history-table thead {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+.history-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge.success {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.badge.warning {
+  background-color: #fff3cd;
+  color: #664d03;
+}
+
+.empty-message {
+  text-align: center;
+  color: #888;
+}
+.btn-iade {
+  margin-left: 10px;
+  padding: 4px 10px;
+  font-size: 13px;
+  background-color: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-iade:hover {
+  background-color: #15803d;
+}
