@@ -94,7 +94,6 @@ export class UyeListesiComponent implements OnInit {
   deleteUye(id: number): void {
     if (confirm('Bu kullanıcıyı silmek istediğinizden emin misiniz?')) {
       const headers = this.getAuthHeaders();
-
       this.http.delete(`${this.apiUrl}/${id}`, { headers, responseType: 'text' }).subscribe({
         next: () => {
           this.messageService.add({ severity: 'success', summary: 'Silindi', detail: 'Kullanıcı silindi.' });
